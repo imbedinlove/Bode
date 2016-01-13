@@ -96,7 +96,8 @@ namespace Bode.Services.Implement.Services
                 public async Task<OperationResult> DeleteFeedBacks(params int[] ids)
                 {
                     ids.CheckNotNull("ids");
-                    return await Task.Run(() => FeedBackRepo.Delete(ids));
+                    await FeedBackRepo.RecycleAsync(p=>ids.Contains(p.Id));
+                    return new OperationResult(OperationResultType.Success, "删除成功");
                 }
 
                 #endregion
@@ -183,7 +184,8 @@ namespace Bode.Services.Implement.Services
                 public async Task<OperationResult> DeleteUserInfos(params int[] ids)
                 {
                     ids.CheckNotNull("ids");
-                    return await Task.Run(() => UserInfoRepo.Delete(ids));
+                    await UserInfoRepo.RecycleAsync(p=>ids.Contains(p.Id));
+                    return new OperationResult(OperationResultType.Success, "删除成功");
                 }
 
                 #endregion
@@ -255,7 +257,8 @@ namespace Bode.Services.Implement.Services
                 public async Task<OperationResult> DeleteValidateCodes(params int[] ids)
                 {
                     ids.CheckNotNull("ids");
-                    return await Task.Run(() => ValidateCodeRepo.Delete(ids));
+                    await ValidateCodeRepo.RecycleAsync(p=>ids.Contains(p.Id));
+                    return new OperationResult(OperationResultType.Success, "删除成功");
                 }
 
                 #endregion

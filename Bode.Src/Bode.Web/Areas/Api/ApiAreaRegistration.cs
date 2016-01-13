@@ -13,10 +13,8 @@ namespace Bode.Web.Areas.Api
             }
         }
 
-
         public override void RegisterArea(AreaRegistrationContext context)
         {
-
             HttpConfiguration config = GlobalConfiguration.Configuration;
             config.Routes.MapHttpRoute(
                 "Api_default",

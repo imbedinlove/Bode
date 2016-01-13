@@ -51,11 +51,16 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Winista.HtmlParser, Version=1.8.0.0, Culture=neutral">
+      <HintPath>..\..\packages\Winista.HtmlParser.1.8.0\lib\Winista.HtmlParser.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IIdentityContract.cs" />
     <Compile Include="Contracts\ILoggingContract.cs" />
     <Compile Include="Contracts\ISecurityContract.cs" />
+    <Compile Include="Contracts\IBugContract.cs" />
     <Compile Include="Contracts\IUserContract.cs" />
     <Compile Include="Contracts\IUserContract.generated.cs" />
     <Compile Include="Dtos\DroMappers.cs" />

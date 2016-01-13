@@ -1,6 +1,7 @@
 ﻿using Bode.Services.Core.Models.Identity;
 using OSharp.Core.Data;
 using OSharp.Utility.Extensions;
+using OSharp.Web.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ using System.Web.Http;
 
 namespace Bode.Web.Areas.Api.Controllers
 {
-    public class TestController : ApiController
+    public class TestController : BaseApiController
     {
         public IRepository<SysUser, int> UserRepo { get; set; }
         public IRepository<SysRole, int> RoleRepo { get; set; }

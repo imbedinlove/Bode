@@ -291,6 +291,20 @@ namespace OSharp.Utility.Extensions
             return encoding.GetString(bytes);
         }
 
+        /// <summary>
+        /// 格式化字符串为标准的url
+        /// </summary>
+        /// <param name="host"></param>
+        /// <returns></returns>
+        public static string FormatHost(this string host)
+        {
+            host = host.Trim();
+            if (host.IndexOf("http://") != 0)
+            {
+                host = "http://" + host;
+            }
+            return host;
+        }
         #endregion
     }
 }
