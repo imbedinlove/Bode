@@ -137,7 +137,7 @@ namespace OSharp.Core.Security
                 foreach (MethodInfo method in methods)
                 {
                     TFunction action = GetFunction(method);
-                    TFunction existAction = GetFunction(functions, action.Action, action.Controller, action.Area, action.Name);
+                    TFunction existAction = GetFunction(functions, action.Action, action.Controller, action.Area, action.Name,action.MenuGroupKey);
                     //忽略指定条件的已存在的功能信息
                     if (existAction != null && IsIgnoreMethod(method))
                     {
@@ -175,7 +175,7 @@ namespace OSharp.Core.Security
         protected virtual bool ExistsFunction(IEnumerable<TFunction> functions, TFunction function)
         {
             return functions.Any(m => m.Action == function.Action && m.Controller == function.Controller
-                && m.Area == function.Area && m.Name == function.Name && m.PlatformToken == PlatformToken);
+                && m.Area == function.Area && m.Name == function.Name && m.PlatformToken == PlatformToken && m.MenuGroupKey == function.MenuGroupKey);
         }
 
         /// <summary>
@@ -187,10 +187,10 @@ namespace OSharp.Core.Security
         /// <param name="area">区域名称</param>
         /// <param name="name">功能名称</param>
         /// <returns></returns>
-        protected virtual TFunction GetFunction(IEnumerable<TFunction> functions, string action, string controller, string area, string name)
+        protected virtual TFunction GetFunction(IEnumerable<TFunction> functions, string action, string controller, string area, string name,string menuGroupKey)
         {
             return functions.FirstOrDefault(m => m.Action == action && m.Controller == controller
-                && m.Area == area && m.Name == name && m.PlatformToken == PlatformToken);
+                && m.Area == area && m.Name == name && m.PlatformToken == PlatformToken && m.MenuGroupKey == menuGroupKey);
         }
 
         /// <summary>
@@ -252,6 +252,11 @@ namespace OSharp.Core.Security
                 if (item.IsAjax != function.IsAjax)
                 {
                     item.IsAjax = function.IsAjax;
+                    isUpdate = true;
+                }
+                if (item.MenuGroupKey != function.MenuGroupKey)
+                {
+                    item.MenuGroupKey = function.MenuGroupKey;
                     isUpdate = true;
                 }
                 if (!item.IsTypeChanged && item.IsMenu != function.IsMenu)
