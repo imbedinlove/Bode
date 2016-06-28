@@ -1,8 +1,8 @@
 /*
-*==文件名：main.css
-*==作用:网站通用样式
-*==编写时间：2014-11-07
-*==编写：伯德梦想www.bodecn.net
+*==Ã¦â€“â€¡Ã¤Â»Â¶Ã¥ÂÂÃ¯Â¼Å¡main.css
+*==Ã¤Â½Å“Ã§â€Â¨:Ã§Â½â€˜Ã§Â«â„¢Ã©â‚¬Å¡Ã§â€Â¨Ã¦Â Â·Ã¥Â¼Â
+*==Ã§Â¼â€“Ã¥â€ â„¢Ã¦â€”Â¶Ã©â€”Â´Ã¯Â¼Å¡2014-11-07
+*==Ã§Â¼â€“Ã¥â€ â„¢Ã¯Â¼Å¡Ã¤Â¼Â¯Ã¥Â¾Â·Ã¦Â¢Â¦Ã¦Æ’Â³www.bodecn.net
 */
 html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, font, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend { margin: 0; padding: 0; border: 0; outline: 0; font-size: 13px; }body { line-height: 1; }ol, ul { list-style: none; }blockquote, q {	quotes: none; }blockquote:before, blockquote:after,q:before, q:after { content: ''; content: none; }
 :focus { outline: 0; }
@@ -10,7 +10,7 @@ ins { text-decoration: none; }
 del { text-decoration: line-through; }
 table { border-collapse: collapse; border-spacing: 0; }
 article, aside, footer, header, hgroup, nav, section { display: block; }
-body{min-width:1024px;margin:0px; padding:0px; font-family:"宋体"; color: #252525; font-size: 14px; }
+body{min-width:1024px;margin:0px; padding:0px; font-family:"Ã¥Â®â€¹Ã¤Â½â€œ"; color: #252525; font-size: 14px; }
 a{ text-decoration:none;  color:#252525; font-size:12px;}
 
 
@@ -170,7 +170,7 @@ a{ text-decoration:none;  color:#252525; font-size:12px;}
 
 
 
-/***登陆注册*************/
+/***Ã§â„¢Â»Ã©â„¢â€ Ã¦Â³Â¨Ã¥â€ Å’*************/
 .hidden { display: none !important;}
 .show { display: block !important;}
 .pop_bg { position: fixed; top: 0; width: 100%; height: 100%; background-color: #000; opacity: 0.6; filter:alpha(opacity=60); z-index: 999;}
@@ -186,5 +186,149 @@ a{ text-decoration:none;  color:#252525; font-size:12px;}
 .logion p span a { color: #bb3232;}
 .logion p.cor { color:#bb3232; line-height: 20px;}
 
+
+.sign-button {
+    display: block;
+    width: 100%;
+    font-size: 15px;
+    line-height: 33px;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(0,0,0,.2);
+    background: #0f88eb;
+    background: -webkit-linear-gradient(top,##0f88eb,#6bbaf8);
+    background: linear-gradient(to bottom,##0f88eb,#6bbaf8);
+    border: 1px solid #0f88eb;
+    border-radius: 2px;
+    height: 40px;
+}
+
+.sign-flow .sign-button {
+    background: #0f88eb;
+    box-shadow: none;
+    border: 0;
+    border-radius: 2px;
+    line-height: 41px;
+    color: #fff;
+}
+
+        .top_div {
+            background: #008ead;
+            width: 100%;
+            height: 400px;
+        }
+
+        .ipt {
+            border: 1px solid #d3d3d3;
+            padding-top:10px;
+            padding-bottom: 10px;
+            width: 100%;
+            border-radius: 2px;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        }
+
+            .ipt:focus {
+                border-color: #66afe9;
+                outline: 0;
+                -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+                box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+            }
+
+        .u_logo {
+            background: url("../../../../Content/images/login/username.png") no-repeat;
+            padding: 10px 10px;
+            position: absolute;
+            top: 43px;
+            left: 40px;
+        }
+
+        .p_logo {
+            background: url("../../../../Content/images/login/password.png") no-repeat;
+            padding: 10px 10px;
+            position: absolute;
+            top: 12px;
+            left: 40px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .tou {
+            background: url("../../../../Content/images/login/tou.png") no-repeat;
+            width: 97px;
+            height: 92px;
+            position: absolute;
+            top: -87px;
+            left: 140px;
+        }
+
+        .left_hand {
+            background: url("../../../../Content/images/login/left_hand.png") no-repeat;
+            width: 32px;
+            height: 37px;
+            position: absolute;
+            top: -38px;
+            left: 150px;
+        }
+
+        .right_hand {
+            background: url("../../../../Content/images/login/right_hand.png") no-repeat;
+            width: 32px;
+            height: 37px;
+            position: absolute;
+            top: -38px;
+            right: -64px;
+        }
+
+        .initial_left_hand {
+            background: url("../../../../Content/images/login/hand.png") no-repeat;
+            width: 30px;
+            height: 20px;
+            position: absolute;
+            top: -12px;
+            left: 100px;
+        }
+
+        .initial_right_hand {
+            background: url("../../../../Content/images/login/hand.png") no-repeat;
+            width: 30px;
+            height: 20px;
+            position: absolute;
+            top: -12px;
+            right: -112px;
+        }
+
+        .left_handing {
+            background: url("../../../../Content/images/login/left-handing.png") no-repeat;
+            width: 30px;
+            height: 20px;
+            position: absolute;
+            top: -24px;
+            left: 139px;
+        }
+
+        .right_handinging {
+            background: url("../../../../Content/images/login/right_handing.png") no-repeat;
+            width: 30px;
+            height: 20px;
+            position: absolute;
+            top: -21px;
+            left: 210px;
+        }
+        .index-main{
+            background-color:#ffffff;
+            text-align:center;
+            white-space: nowrap;
+        }
+        .login-form{
+            width: 300px;
+            position:absolute;
+            text-align:center;
+            left:50%;
+            top:50%;
+            margin-left:-200px;
+            margin-top:-100px;
+        }
 
 
