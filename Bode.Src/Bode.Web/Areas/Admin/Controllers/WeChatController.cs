@@ -13,6 +13,7 @@ using System;
 using OSharp.Utility.Helper;
 using OSharp.Core.Data;
 using OSharp.Web.Mvc.Initialize;
+using OSharp.Utility.Logging;
 
 namespace Bode.Web.Areas.Admin.Controllers
 {
@@ -20,6 +21,7 @@ namespace Bode.Web.Areas.Admin.Controllers
     //[BodeMenuGroupKey("Admin.Home")]
     public class WeChatController : Controller
     {
+        private readonly ILogger log = LogManager.GetLogger("WeChar");
 
         //[Authorize]
         //[BodeMenuGroupKey("mk222")]
@@ -33,6 +35,14 @@ namespace Bode.Web.Areas.Admin.Controllers
             }
 
             string echoString = HttpContext.Request.QueryString["echoStr"];
+            if (string.IsNullOrEmpty(echoString))
+            {
+                log.Info("echoString is null");
+            }
+            else
+            {
+                log.Info(echoString);
+            }
             string signature = HttpContext.Request.QueryString["signature"];
             string timestamp = HttpContext.Request.QueryString["timestamp"];
             string nonce = HttpContext.Request.QueryString["nonce"];

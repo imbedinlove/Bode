@@ -634,6 +634,7 @@
     <Content Include="Content\js\ueditor\third-party\video-js\font\vjs.eot" />
     <Content Include="Content\js\ueditor\third-party\video-js\font\vjs.ttf" />
     <Content Include="Content\js\ueditor\third-party\video-js\font\vjs.woff" />
+    <None Include="Properties\PublishProfiles\localhost.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -643,7 +644,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\js\ueditor\net\Bin\" />
-    <Folder Include="Properties\PublishProfiles\" />
     <Folder Include="Views\Home\" />
     <Folder Include="Views\Test\" />
   </ItemGroup>
