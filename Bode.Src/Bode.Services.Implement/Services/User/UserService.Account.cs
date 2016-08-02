@@ -16,10 +16,12 @@ using OSharp.Utility.Extensions;
 using OSharp.Utility.Secutiry;
 using OSharp.Utility.Net.Mail;
 using System.Collections.Generic;
+using Bode.Services.Implement.Helper;
+using Bode.Services.Core.Contracts;
 
 namespace Bode.Services.Implement.Services
 {
-    public partial class UserService
+    public partial class UserService : IUserContract
     {
         /// <summary>
         /// 获取手机验证码
@@ -34,9 +36,9 @@ namespace Bode.Services.Implement.Services
                 if (UserInfoRepo.CheckExists(p => p.SysUser.UserName == phoneNo))
                 {
                     return new OperationResult(OperationResultType.ValidError, "手机号已注册，不能获取注册验证码");
-                } 
+                }
             }
-            if (codeType == CodeType.找回密码)
+            if (codeType == CodeType.找回密码 || codeType == CodeType.动态登录)
             {
                 if (!UserInfoRepo.CheckExists(p => p.SysUser.UserName == phoneNo))
                 {
@@ -46,9 +48,26 @@ namespace Bode.Services.Implement.Services
             
             return await SendValidateCode(phoneNo, ValidateType.手机, codeType, code =>
             {
-                var smsContent = "您的验证码为：" + code + "，请勿泄露。[不同]";
+                var smsContent = "您的验证码为：" + code + "，请勿泄露。[sahara]";
                 Sms.Send(phoneNo, 1, smsContent);
             });
+        }
+
+        /// <summary>
+        /// 验证验证码是否正确
+        /// </summary>
+        /// <param name="phoneNo">手机号码</param>
+        /// <param name="code">验证码</param>
+        /// <param name="codeType">验证码类型</param>
+        /// <returns></returns>
+        public OperationResult ValidateCode(string phoneNo, string code, CodeType codeType)
+        {
+            var serverCode = GetValidateCode(phoneNo, codeType);
+            if (serverCode == null || serverCode.Code != code)
+            {
+                return BodeResult.ValidError("验证码有误，请重新输入");
+            }
+            return BodeResult.Success();
         }
 
         /// <summary>
@@ -80,14 +99,12 @@ namespace Bode.Services.Implement.Services
             });
         }
 
-
         /// <summary>
         /// 验证用户注册
         /// </summary>
         /// <param name="dto">用户注册信息</param>
         /// <param name="validateCode">验证码</param>
         /// <returns>业务操作结果</returns>
-
         public async Task<OperationResult> ValidateRegister(UserInfoRegistDto dto, string validateCode)
         {
             dto.CheckNotNull("dto");
@@ -172,32 +189,60 @@ namespace Bode.Services.Implement.Services
             }
             else
             {
-                //更新最后一次登录的RegistKey
-                var theUser = await UserInfos.SingleOrDefaultAsync(p => p.SysUser.UserName == userName);
-                if (theUser == null)
-                {
-                    return new OperationResult(OperationResultType.ValidError, "数据错误", null);
-                }
-
-                if (theUser.RegistKey != registKey)
-                {
-                    theUser.RegistKey = registKey;
-                    await UserInfoRepo.UpdateAsync(theUser);
-                }
-
-                //变更登录信息
-                await ResetToken(theUser, loginDevice, clientVersion);
-
-                var loginInfo = new UserTokenDto()
-                {
-                    Id = theUser.Id,
-                    NickName = theUser.SysUser.NickName,
-                    HeadPic = theUser.HeadPic,
-                    Sex = theUser.Sex,
-                    Token = theUser.Token
-                };
-                return new OperationResult(OperationResultType.Success, "登录成功", loginInfo);
+                return await Login(userName, registKey, loginDevice, clientVersion);
             }
+        }
+
+        private async Task<OperationResult> Login(string userName, string registKey, LoginDevice loginDevice, string clientVersion)
+        {
+            //更新最后一次登录的RegistKey
+            var theUser = await UserInfos.SingleOrDefaultAsync(p => p.SysUser.UserName == userName);
+            if (theUser == null)
+            {
+                return new OperationResult(OperationResultType.ValidError, "数据错误", null);
+            }
+
+            if (theUser.RegistKey != registKey)
+            {
+                theUser.RegistKey = registKey;
+                await UserInfoRepo.UpdateAsync(theUser);
+            }
+
+            //变更登录信息
+            await ResetToken(theUser, loginDevice, clientVersion);
+
+            var loginInfo = new UserTokenDto()
+            {
+                Id = theUser.Id,
+                NickName = theUser.SysUser.NickName,
+                HeadPic = theUser.HeadPic,
+                Sex = theUser.Sex,
+                Token = theUser.Token
+            };
+            return new OperationResult(OperationResultType.Success, "登录成功", loginInfo);
+
+        }
+
+        public async Task<OperationResult> Login(string phoneNo, string code, LoginDevice loginDevice)
+        {
+            phoneNo.CheckNotNullOrEmpty("phoneNo");
+            code.CheckNotNullOrEmpty("code");
+
+            SysUser sUser = UserManager.FindByName(phoneNo);
+            var severCode = GetValidateCode(phoneNo, CodeType.动态登录);
+            if (sUser == null || sUser.UserType != UserType.App用户)
+            {
+                return BodeResult.QueryNull("用户不存在");
+            }
+            else if(sUser.IsLocked)
+            {
+                return BodeResult.ValidError("用户已经被冻结,请联系客户.");
+            }
+            else if (severCode == null || severCode.Code != code)
+            {
+                return BodeResult.ValidError("验证码错误.");
+            }
+            return await Login(phoneNo, "null", loginDevice);
         }
 
         /// <summary>

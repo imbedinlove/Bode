@@ -1,21 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bode.Doc", "Bode.Doc", "{1961B072-529C-41A1-889F-3C6D72C0A8FF}"
-	ProjectSection(SolutionItems) = preProject
-		Bode.Doc\Function_EntityInfo-CodeMap.dgml = Bode.Doc\Function_EntityInfo-CodeMap.dgml
-		Bode.Doc\OSharp开发框架架构示图.png = Bode.Doc\OSharp开发框架架构示图.png
-		Bode.Doc\OSharp开发框架架构示图.vsd = Bode.Doc\OSharp开发框架架构示图.vsd
-		Bode.Doc\OSharp日志模块示图.png = Bode.Doc\OSharp日志模块示图.png
-		Bode.Doc\OSharp日志模块示图.vsd = Bode.Doc\OSharp日志模块示图.vsd
-		Bode.Doc\OSharp权限系统设计.png = Bode.Doc\OSharp权限系统设计.png
-		Bode.Doc\OSharp权限系统设计.vsd = Bode.Doc\OSharp权限系统设计.vsd
-		Bode.Doc\OSharp读写分离支持.docx = Bode.Doc\OSharp读写分离支持.docx
-		Bode.Doc\操作数据日志.vsd = Bode.Doc\操作数据日志.vsd
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bode.Frame", "Bode.Frame", "{5F2B0141-D04B-42C7-B5F9-11343D29B4CD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bode.Src", "Bode.Src", "{984A2F72-57BF-4825-AA0D-04FEEBAFA420}"

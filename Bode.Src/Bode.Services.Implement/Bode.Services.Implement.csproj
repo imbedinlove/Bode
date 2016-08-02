@@ -62,6 +62,16 @@
   <ItemGroup>
     <Compile Include="DbContexts\DemoDbContext.cs" />
     <Compile Include="DbContexts\DemoDbContextInitializer.cs" />
+    <Compile Include="DbSeed\CreateCitySeedAction.cs" />
+    <Compile Include="DbSeed\CreateDatabaseIfNotExistsWithSeed.cs" />
+    <Compile Include="DbSeed\CreateSysRoleSeedAction.cs" />
+    <Compile Include="Helper\BodeResult.cs" />
+    <Compile Include="ModelConfigs\Delivery\AreaConfiguration.cs" />
+    <Compile Include="ModelConfigs\Delivery\CityConfiguration.cs" />
+    <Compile Include="ModelConfigs\Delivery\DeliveryAddressConfiguration.cs" />
+    <Compile Include="ModelConfigs\Delivery\FreightTemplateConfiguration.cs" />
+    <Compile Include="ModelConfigs\Delivery\LogisticsConfiguration.cs" />
+    <Compile Include="ModelConfigs\Delivery\ProvinceConfiguration.cs" />
     <Compile Include="ModelConfigs\Identity\SysOrganizationConfiguration.cs" />
     <Compile Include="ModelConfigs\Identity\SysRoleConfiguration.cs" />
     <Compile Include="ModelConfigs\Identity\SysUserConfiguration.cs" />

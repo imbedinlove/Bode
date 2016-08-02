@@ -26,7 +26,8 @@ namespace Bode.Services.Core.Models.User
         不限 = 0,
         用户注册 = 1,
         找回密码 = 2,
-        更换手机 = 3
+        更换手机 = 3,
+        动态登录 = 4
     }
 
     public enum ValidateType

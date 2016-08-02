@@ -92,5 +92,23 @@ namespace Bode.Services.Core.Contracts
         /// <param name="dtos">要更新的UserInfoEditDto信息</param>
         /// <returns>业务操作结果</returns>
         Task<OperationResult> EditUserInfos(params UserInfoEditDto[] dtos);
+
+        /// <summary>
+        /// 用户短信验证码登录
+        /// </summary>
+        /// <param name="phoneNo">手机号码</param>
+        /// <param name="code">短信验证码</param>
+        /// <param name="loginDevice">登录设备</param>
+        /// <returns></returns>
+        Task<OperationResult> Login(string phoneNo, string code, LoginDevice loginDevice);
+
+        /// <summary>
+        /// 验证验证码是否正确
+        /// </summary>
+        /// <param name="phoneNo">手机号码</param>
+        /// <param name="code">验证码</param>
+        /// <param name="codeType">验证码类型</param>
+        /// <returns></returns>
+        OperationResult ValidateCode(string phoneNo, string code, CodeType codeType);
     }
 }

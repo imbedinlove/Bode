@@ -634,6 +634,8 @@
     <Content Include="Content\js\ueditor\third-party\video-js\font\vjs.eot" />
     <Content Include="Content\js\ueditor\third-party\video-js\font\vjs.ttf" />
     <Content Include="Content\js\ueditor\third-party\video-js\font\vjs.woff" />
+    <None Include="Properties\PublishProfiles\24.pubxml" />
+    <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Properties\PublishProfiles\localhost.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

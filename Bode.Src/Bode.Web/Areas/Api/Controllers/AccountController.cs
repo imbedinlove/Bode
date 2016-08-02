@@ -38,6 +38,20 @@ namespace Bode.Web.Areas.Api.Controllers
             return Json(result.ToApiResult());
         }
 
+        /// <summary>
+        /// 验证验证码是否正确
+        /// </summary>
+        /// <param name="phoneNo">手机号码</param>
+        /// <param name="code">验证码</param>
+        /// <param name="codeType">验证码类型</param>
+        /// <returns></returns>
+        [HttpPost]
+        [Description("验证验证码是否正确")]
+        public IHttpActionResult ValidateCode(string phoneNo, string code, CodeType codeType)
+        {
+            return Json(UserContract.ValidateCode(phoneNo, code, codeType));
+        }
+
         [HttpPost]
         [Description("获取邮箱验证码")]
         public async Task<IHttpActionResult> GetEmailCode(string email, CodeType codeType = CodeType.用户注册)
@@ -61,6 +75,14 @@ namespace Bode.Web.Areas.Api.Controllers
         public async Task<IHttpActionResult> Login(string userName, string password, LoginDevice loginDevice, string clientVersion, string registKey = "")
         {
             var result = await UserContract.Login(userName, password, registKey, loginDevice, clientVersion);
+            return Json(result.ToApiResult());
+        }
+
+        [HttpPost]
+        [Description("使用手机验证码登录")]
+        public async Task<IHttpActionResult> LoginByCode(string phoneNo, string code, LoginDevice loginDevice)
+        {
+            var result = await UserContract.Login(phoneNo, code, loginDevice);
             return Json(result.ToApiResult());
         }
 

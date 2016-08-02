@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using Bode.Services.Core.Models.Identity;
 using OSharp.Core.Data;
 using OSharp.Utility.Develop.T4;
+using Bode.Services.Core.Models.Delivery;
 
 namespace Bode.Services.Core.Models.User
 {
@@ -28,6 +29,9 @@ namespace Bode.Services.Core.Models.User
 
         [Description("生日")]
         public string BirthDay { get; set; }
+
+        [Description("区")]
+        public Area Area { get; set; }
 
         [Description("系统用户")]
         public virtual SysUser SysUser { get; set; }

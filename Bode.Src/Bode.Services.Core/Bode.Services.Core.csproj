@@ -76,6 +76,12 @@
     <Compile Include="Dtos\User\UserTokenDto.cs" />
     <Compile Include="Dtos\User\ValidateCodeDto.generated.cs" />
     <Compile Include="Models\BannerEntityBase.cs" />
+    <Compile Include="Models\Delivery\Area.cs" />
+    <Compile Include="Models\Delivery\City.cs" />
+    <Compile Include="Models\Delivery\DeliveryAddress.cs" />
+    <Compile Include="Models\Delivery\FreightTemplate.cs" />
+    <Compile Include="Models\Delivery\Logistics.cs" />
+    <Compile Include="Models\Delivery\Province.cs" />
     <Compile Include="Models\Identity\SysOrganization.cs" />
     <Compile Include="Models\Identity\SysRole.cs" />
     <Compile Include="Models\Identity\SysUser.cs" />
