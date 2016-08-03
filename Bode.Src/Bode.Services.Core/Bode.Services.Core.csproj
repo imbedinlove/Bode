@@ -53,16 +53,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\ICharacterContract.generated.cs" />
+    <Compile Include="Contracts\IDeliveryContract.generated.cs" />
     <Compile Include="Contracts\IIdentityContract.cs" />
+    <Compile Include="Contracts\IIndustryContract.generated.cs" />
     <Compile Include="Contracts\ILoggingContract.cs" />
     <Compile Include="Contracts\ISecurityContract.cs" />
     <Compile Include="Contracts\IUserContract.cs" />
     <Compile Include="Contracts\IUserContract.generated.cs" />
+    <Compile Include="Dtos\Character\LabelDto.generated.cs" />
+    <Compile Include="Dtos\Delivery\AreaDto.generated.cs" />
+    <Compile Include="Dtos\Delivery\CityDto.generated.cs" />
+    <Compile Include="Dtos\Delivery\DeliveryAddressDto.generated.cs" />
+    <Compile Include="Dtos\Delivery\FreightTemplateDto.generated.cs" />
+    <Compile Include="Dtos\Delivery\LogisticsDto.generated.cs" />
+    <Compile Include="Dtos\Delivery\ProvinceDto.generated.cs" />
+    <Compile Include="Dtos\Delivery\RegionDto.generated.cs" />
     <Compile Include="Dtos\DroMappers.cs" />
     <Compile Include="Dtos\DtoMappers.generated.cs" />
     <Compile Include="Dtos\Identity\SysOrganizationDto.cs" />
     <Compile Include="Dtos\Identity\SysRoleDto.cs" />
     <Compile Include="Dtos\Identity\SysUserDto.cs" />
+    <Compile Include="Dtos\Industry\EducationDto.generated.cs" />
+    <Compile Include="Dtos\Industry\PositionDto.generated.cs" />
+    <Compile Include="Dtos\Industry\ProfessionDto.generated.cs" />
+    <Compile Include="Dtos\Industry\TradeDto.generated.cs" />
     <Compile Include="Dtos\Security\EntityInfoDto.cs" />
     <Compile Include="Dtos\Security\EntityRoleMapDto.cs" />
     <Compile Include="Dtos\Security\EntityUserMapDto.cs" />
@@ -75,7 +90,9 @@
     <Compile Include="Dtos\User\UserInfoRegistDto.cs" />
     <Compile Include="Dtos\User\UserTokenDto.cs" />
     <Compile Include="Dtos\User\ValidateCodeDto.generated.cs" />
+    <Compile Include="Models\Character\Label.cs" />
     <Compile Include="Models\BannerEntityBase.cs" />
+    <Compile Include="Models\Delivery\Region.cs" />
     <Compile Include="Models\Delivery\Area.cs" />
     <Compile Include="Models\Delivery\City.cs" />
     <Compile Include="Models\Delivery\DeliveryAddress.cs" />
@@ -88,6 +105,10 @@
     <Compile Include="Models\Identity\SysUserRoleMap.cs" />
     <Compile Include="Models\Identity\SysUserClaim.cs" />
     <Compile Include="Models\Identity\SysUserLogin.cs" />
+    <Compile Include="Models\Industry\Trade.cs" />
+    <Compile Include="Models\Industry\Position.cs" />
+    <Compile Include="Models\Industry\Education.cs" />
+    <Compile Include="Models\Industry\Profession.cs" />
     <Compile Include="Models\Security\EntityRoleMap.cs" />
     <Compile Include="Models\Security\EntityUserMap.cs" />
     <Compile Include="Models\Security\FunctionRoleMap.cs" />
@@ -136,6 +157,9 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ContractsCodeScript.cs</LastGenOutput>
       <LastOutputs>
+..\Contracts\ICharacterContract.generated.cs
+..\Contracts\IDeliveryContract.generated.cs
+..\Contracts\IIndustryContract.generated.cs
 ..\Contracts\IUserContract.generated.cs
 .\ContractsCodeScript.cs
 </LastOutputs>
@@ -152,6 +176,18 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DtosCodeScript.cs</LastGenOutput>
       <LastOutputs>
+..\Dtos\Character\LabelDto.generated.cs
+..\Dtos\Delivery\AreaDto.generated.cs
+..\Dtos\Delivery\CityDto.generated.cs
+..\Dtos\Delivery\DeliveryAddressDto.generated.cs
+..\Dtos\Delivery\FreightTemplateDto.generated.cs
+..\Dtos\Delivery\LogisticsDto.generated.cs
+..\Dtos\Delivery\ProvinceDto.generated.cs
+..\Dtos\Delivery\RegionDto.generated.cs
+..\Dtos\Industry\EducationDto.generated.cs
+..\Dtos\Industry\PositionDto.generated.cs
+..\Dtos\Industry\ProfessionDto.generated.cs
+..\Dtos\Industry\TradeDto.generated.cs
 ..\Dtos\User\FeedBackDto.generated.cs
 ..\Dtos\User\UserInfoDto.generated.cs
 ..\Dtos\User\ValidateCodeDto.generated.cs
@@ -189,6 +225,7 @@
       <Name>OSharp.Utility</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

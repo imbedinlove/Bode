@@ -113,13 +113,12 @@ namespace Bode.Services.Implement.Services
             var severCode = GetValidateCode(dto.UserName, CodeType.用户注册);
             if (severCode == null || severCode.Code != validateCode)
             {
-                return new OperationResult(OperationResultType.ValidError, "验证码错误", 0);
+                return BodeResult.ValidError("验证码错误");
             }
             if (SysUserRepo.CheckExists(p => p.UserName == dto.UserName))
             {
-                return new OperationResult(OperationResultType.ValidError, "账号已被使用", 0);
+                return BodeResult.ValidError("账号已被使用");
             }
-
             try
             {
                 UserInfoRepo.UnitOfWork.TransactionEnabled = true;
@@ -148,14 +147,17 @@ namespace Bode.Services.Implement.Services
 
                 var userInfo = Mapper.Map<UserInfo>(dto);
                 userInfo.SysUser = sUser;
+                userInfo.Region = RegionRepo.GetByKey(dto.RegionId);
+                userInfo.Education = EducationRepo.GetByKey(dto.EducationId);
+                userInfo.Position = PositionRepo.GetByKey(dto.PositionId);
                 await UserInfoRepo.InsertAsync(userInfo);
 
                 await UserInfoRepo.UnitOfWork.SaveChangesAsync();
-                return new OperationResult(OperationResultType.Success, "注册成功", userInfo.Id);
+                return BodeResult.Success("注册成功", userInfo.Id);
             }
-            catch
+            catch(Exception e)
             {
-                return new OperationResult(OperationResultType.NoChanged, "注册失败", 0);
+                return BodeResult.NoChanged("注册失败");
             }
         }
 
@@ -242,7 +244,7 @@ namespace Bode.Services.Implement.Services
             {
                 return BodeResult.ValidError("验证码错误.");
             }
-            return await Login(phoneNo, "null", loginDevice);
+            return await Login(phoneNo, "null", loginDevice, "1.0.0");
         }
 
         /// <summary>

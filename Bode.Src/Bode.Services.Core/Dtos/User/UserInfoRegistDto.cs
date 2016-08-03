@@ -35,7 +35,7 @@ namespace Bode.Services.Core.Dtos.User
         /// <summary>
         /// 区域ID
         /// </summary>
-        public int AreaId { get; set; }
+        public int RegionId { get; set; }
 
         /// <summary>
         /// 头像
@@ -56,5 +56,10 @@ namespace Bode.Services.Core.Dtos.User
         /// 教育
         /// </summary>
         public int EducationId { get; set; }
+
+        /// <summary>
+        /// 毕业学校名称
+        /// </summary>
+        public string School { get; set; } 
     }
 }

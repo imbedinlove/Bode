@@ -11,11 +11,10 @@ using OSharp.Data.Entity;
 
 namespace Bode.Services.Implement.ModelConfigs.Identity
 {
-    public class ProfessionConfiguration : EntityConfigurationBase<Profession, int>
+    public class TradeConfiguration : EntityConfigurationBase<Trade, int>
     {
-        public ProfessionConfiguration()
+        public TradeConfiguration()
         {
-            HasRequired(m => m.Trade);
         }
     }
 }

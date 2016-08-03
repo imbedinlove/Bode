@@ -62,10 +62,14 @@
   <ItemGroup>
     <Compile Include="DbContexts\DemoDbContext.cs" />
     <Compile Include="DbContexts\DemoDbContextInitializer.cs" />
+    <Compile Include="DbSeed\CreateLabelSeedAction.cs" />
+    <Compile Include="DbSeed\CreateEducationSeedAction.cs" />
+    <Compile Include="DbSeed\CreateIndustrySeedAction.cs" />
     <Compile Include="DbSeed\CreateCitySeedAction.cs" />
     <Compile Include="DbSeed\CreateDatabaseIfNotExistsWithSeed.cs" />
     <Compile Include="DbSeed\CreateSysRoleSeedAction.cs" />
     <Compile Include="Helper\BodeResult.cs" />
+    <Compile Include="ModelConfigs\Character\LabelConfiguration.cs" />
     <Compile Include="ModelConfigs\Delivery\AreaConfiguration.cs" />
     <Compile Include="ModelConfigs\Delivery\CityConfiguration.cs" />
     <Compile Include="ModelConfigs\Delivery\DeliveryAddressConfiguration.cs" />
@@ -78,6 +82,11 @@
     <Compile Include="ModelConfigs\Identity\SysUserRoleMapConfiguration.cs" />
     <Compile Include="ModelConfigs\Identity\SysUserClaimConfiguration.cs" />
     <Compile Include="ModelConfigs\Identity\SysUserLoginConfiguration.cs" />
+    <Compile Include="ModelConfigs\Industry\EducationConfiguration .cs" />
+    <Compile Include="ModelConfigs\Industry\ProfessionConfiguration.cs" />
+    <Compile Include="ModelConfigs\Industry\PositionConfiguration.cs" />
+    <Compile Include="ModelConfigs\Delivery\RegionConfiguration.cs" />
+    <Compile Include="ModelConfigs\Industry\TradeConfiguration.cs" />
     <Compile Include="ModelConfigs\Security\EntityInfoConfiguration.cs" />
     <Compile Include="ModelConfigs\Security\EntityRoleMapConfiguration.cs" />
     <Compile Include="ModelConfigs\Security\EntityUserMapConfiguration.cs" />
@@ -95,10 +104,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeedActions\RoleSeedAction.cs" />
     <Compile Include="ServiceCollectionExtensions.cs" />
+    <Compile Include="Services\Character\CharacterService.generated.cs" />
+    <Compile Include="Services\Delivery\DeliveryService.cs" />
+    <Compile Include="Services\Delivery\DeliveryService.generated.cs" />
     <Compile Include="Services\Identity\IdentityService.cs" />
     <Compile Include="Services\Identity\IdentityService.Organization.cs" />
     <Compile Include="Services\Identity\IdentityService.Role.cs" />
     <Compile Include="Services\Identity\IdentityService.User.cs" />
+    <Compile Include="Services\Industry\IndustryService.generated.cs" />
     <Compile Include="Services\Logging\LoggingService.cs" />
     <Compile Include="Services\Logging\LoggingService.DataLog.cs" />
     <Compile Include="Services\Security\SecurityService.cs" />
@@ -155,6 +168,9 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ServicesCodeScript.cs</LastGenOutput>
       <LastOutputs>
+..\Services\Character\CharacterService.generated.cs
+..\Services\Delivery\DeliveryService.generated.cs
+..\Services\Industry\IndustryService.generated.cs
 ..\Services\User\UserService.generated.cs
 .\ServicesCodeScript.cs
 </LastOutputs>

@@ -117,7 +117,10 @@ namespace Bode.Services.Implement.Services
                         {
                             if(dto.Id==0||updateForeignKey)
                             {
-                                                                        entity.SysUser = SysUserRepo.GetByKey(dto.SysUserId);
+                                                                        entity.Region = RegionRepo.GetByKey(dto.RegionId);
+                                                                                entity.SysUser = SysUserRepo.GetByKey(dto.SysUserId);
+                                                                                entity.Position = PositionRepo.GetByKey(dto.PositionId);
+                                                                                entity.Education = EducationRepo.GetByKey(dto.EducationId);
                                                                     }
                             return entity; 
                         };

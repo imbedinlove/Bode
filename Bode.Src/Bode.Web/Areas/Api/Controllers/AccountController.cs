@@ -66,6 +66,7 @@ namespace Bode.Web.Areas.Api.Controllers
         [Description("验证并注册")]
         public async Task<IHttpActionResult> ValidateRegister(UserInfoRegistDto dto, string validateCode)
         {
+            dto.PhoneNo = dto.UserName;
             var result = await UserContract.ValidateRegister(dto, validateCode);
             return Json(result.ToApiResult());
         }

@@ -9,11 +9,24 @@ using System.Threading.Tasks;
 
 namespace Bode.Services.Core.Models.Industry
 {
+    /// <summary>
+    /// 行业
+    /// </summary>
     [Generate]
     [Description("行业")]
-    public class Industry : EntityBase<int>
+    public class Trade : EntityBase<int>
     {
+        public Trade()
+        {
+            Professions = new List<Profession>();
+        }
+
+        /// <summary>
+        /// 行业名称
+        /// </summary>
         [Description("行业名称")]
         public string Name { get; set; }
+
+        public virtual ICollection<Profession> Professions { get; set; }
     }
 }

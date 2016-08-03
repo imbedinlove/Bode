@@ -17,7 +17,12 @@ namespace Bode.Services.Core.Dtos.User
                                         public System.String RealName { get; set; }
                                         public System.String RegistKey { get; set; }
                                         public Bode.Services.Core.Models.User.Sex Sex { get; set; }
-                                        public System.String ChannelCode { get; set; }
+                                        public System.String Signature { get; set; }
+                                        public System.String BirthDay { get; set; }
+                                        public System.Int32 RegionId { get; set; }
                                         public System.Int32 SysUserId { get; set; }
+                                        public System.Int32 PositionId { get; set; }
+                                        public System.String School { get; set; }
+                                        public System.Int32 EducationId { get; set; }
                     	}
 }

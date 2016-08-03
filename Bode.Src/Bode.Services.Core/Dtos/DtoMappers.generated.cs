@@ -8,6 +8,12 @@
 using AutoMapper;
         using Bode.Services.Core.Models.User;
         using Bode.Services.Core.Dtos.User;
+                using Bode.Services.Core.Models.Industry;
+        using Bode.Services.Core.Dtos.Industry;
+                using Bode.Services.Core.Models.Delivery;
+        using Bode.Services.Core.Dtos.Delivery;
+                using Bode.Services.Core.Models.Character;
+        using Bode.Services.Core.Dtos.Character;
         
 namespace Bode.Services.Core.Dtos
 {
@@ -18,6 +24,18 @@ namespace Bode.Services.Core.Dtos
                                 Mapper.CreateMap<FeedBackDto, FeedBack>();
                                         Mapper.CreateMap<UserInfoDto, UserInfo>();
                                         Mapper.CreateMap<ValidateCodeDto, ValidateCode>();
+                                        Mapper.CreateMap<TradeDto, Trade>();
+                                        Mapper.CreateMap<PositionDto, Position>();
+                                        Mapper.CreateMap<EducationDto, Education>();
+                                        Mapper.CreateMap<ProfessionDto, Profession>();
+                                        Mapper.CreateMap<RegionDto, Region>();
+                                        Mapper.CreateMap<AreaDto, Area>();
+                                        Mapper.CreateMap<CityDto, City>();
+                                        Mapper.CreateMap<DeliveryAddressDto, DeliveryAddress>();
+                                        Mapper.CreateMap<FreightTemplateDto, FreightTemplate>();
+                                        Mapper.CreateMap<LogisticsDto, Logistics>();
+                                        Mapper.CreateMap<ProvinceDto, Province>();
+                                        Mapper.CreateMap<LabelDto, Label>();
                     
             MapperRegisterCustom();
         }

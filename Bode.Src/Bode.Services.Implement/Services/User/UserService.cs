@@ -8,14 +8,19 @@ using Bode.Services.Implement.Permissions.Identity;
 using OSharp.Core.Data;
 using OSharp.Utility;
 using OSharp.Utility.Data;
+using Bode.Services.Core.Models.Delivery;
+using Bode.Services.Core.Models.Industry;
 
 namespace Bode.Services.Implement.Services
 {
     public partial class UserService
     {
         public IRepository<SysUser, int> SysUserRepo { protected get; set; }
-
         public IIdentityContract IdentityContract { protected get; set; }
+        public IRepository<Area, int> AreaRepo { protected get; set; }
+        public IRepository<Education, int> EducationRepo { protected get; set; }
+        public IRepository<Position, int> PositionRepo { protected get; set; }
+        public IRepository<Region, int> RegionRepo { protected get; set; }
 
         /// <summary>
         /// 获取或设置 用户管理器

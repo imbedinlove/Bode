@@ -11,9 +11,9 @@ using OSharp.Data.Entity;
 
 namespace Bode.Services.Implement.ModelConfigs.Identity
 {
-    public class IndustryConfiguration : EntityConfigurationBase<Industry, int>
+    public class EducationConfiguration : EntityConfigurationBase<Education, int>
     {
-        public IndustryConfiguration()
+        public EducationConfiguration()
         {
         }
     }

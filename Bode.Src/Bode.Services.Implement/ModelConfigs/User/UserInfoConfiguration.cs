@@ -11,7 +11,10 @@ namespace Bode.Services.Implement.ModelConfigs.User
     {
         public UserInfoConfiguration()
         {
-            HasRequired(m => m.Area);
+            HasRequired(m => m.Region);
+            HasRequired(m => m.Education);
+            HasRequired(m => m.Position);
+            HasMany(m => m.Labels);
         }
     }
 }

@@ -6,16 +6,16 @@
 //  <last-date>2015-03-24 17:02</last-date>
 // -----------------------------------------------------------------------
 
-using Bode.Services.Core.Models.Industry;
+using Bode.Services.Core.Models.Delivery;
 using OSharp.Data.Entity;
 
-namespace Bode.Services.Implement.ModelConfigs.Identity
+namespace Bode.Services.Implement.ModelConfigs.Delivery
 {
-    public class ProfessionConfiguration : EntityConfigurationBase<Profession, int>
+    public class RegionConfiguration : EntityConfigurationBase<Region, int>
     {
-        public ProfessionConfiguration()
+        public RegionConfiguration()
         {
-            HasRequired(m => m.Trade);
+            HasRequired(m => m.City);
         }
     }
 }
