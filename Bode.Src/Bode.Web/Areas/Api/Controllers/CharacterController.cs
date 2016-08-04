@@ -3,10 +3,10 @@ using Bode.Services.Core.Contracts;
 using OSharp.Web.Http.Messages;
 using OSharp.Web.Http;
 using System.ComponentModel;
-using OSharp.Core.Data.Extensions;
 using System.Linq;
 using Bode.Services.Implement.Helper;
 using OSharp.Web.Http.Authentication;
+using Newtonsoft.Json;
 
 namespace Bode.Web.Areas.Api.Controllers
 {
@@ -38,7 +38,17 @@ namespace Bode.Web.Areas.Api.Controllers
         public IHttpActionResult IsExistLabel()
         {
             var result = UserContract.UserInfos.Single(m => m.Id == OperatorId).Labels.Count();
-            return Json((result == 0 ?  BodeResult.QueryNull("") : BodeResult.Success()).ToApiResult());
+            return Json((result == 0 ?  BodeResult.QueryNull("用户无标签") : BodeResult.Success()).ToApiResult());
+        }
+
+        [HttpPost]
+        [TokenAuth]
+        [Description("保存用户设置的标签")]
+        public IHttpActionResult SaveLabels(string ids)
+        {
+            var id = JsonConvert.DeserializeObject<int[]>(ids);
+            var result = CharacterContract.SaveLabels(OperatorId, id);
+            return Json(result.ToApiResult());
         }
     }
 }
